@@ -5,7 +5,7 @@ build-backend = 'setuptools.build_meta'
 [project]
 name = "source_organizer"
 version = "0.1.0"
-authors = ["Philipp Jonas Kreutzer <philipp_jonas.kreutzer@ekh.lu.se>"]
+authors = [{name = "Philipp Jonas Kreutzer", email = "philipp_jonas.kreutzer@ekh.lu.se"}]
 description = "A helper to sort source files into folders based on their corresponding SINNO ID."
 readme = "README.md"
 classifiers = [
