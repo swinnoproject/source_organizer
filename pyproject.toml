@@ -1,0 +1,18 @@
+[build-system]
+requires = ["setuptools", "wheel"]
+
+[project]
+name = "source_organizer"
+version = "0.1.0"
+authors = ["Philipp Jonas Kreutzer <philipp_jonas.kreutzer@ekh.lu.se>"]
+description = "A helper to sort source files into folders based on their corresponding SINNO ID."
+readme = "README.md"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+
+[project.urls]
+homepage = "https://github.com/swinnoproject/source_organizer"
+repository = "https://github.com/swinnoproject/source_organizer"
