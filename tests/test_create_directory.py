@@ -1,7 +1,7 @@
 import shutil
 import tempfile
 from pathlib import Path
-from src.file_utils import create_directory
+from source_organizer.file_utils import create_directory
 
 def test_create_directory():
     # Test that directory is created if it doesn't exist

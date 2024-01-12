@@ -3,21 +3,24 @@ import shutil
 from pathlib import Path
 from collections import defaultdict
 
+
 def copy_sources():
     input_path = Path(ROOT, args["input"])
     lookup_path = Path(ROOT, args["lookup"])
     source_path = args["source"]
     destination_path = args["destination"]
-    
+
     input_ids = get_input_ids(input_path)
     source_names = get_source_names(lookup_path, input_ids)
-    
+
     for id, sources in source_names.items():
         copy_files(id, sources, source_path, destination_path)
+
 
 def get_input_ids(input_path):
     with open(input_path, "r") as f:
         return [line.strip()[:-3] for line in f.readlines()]
+
 
 def get_source_names(lookup_path, input_ids):
     with open(lookup_path, "r") as f:
@@ -25,8 +28,9 @@ def get_source_names(lookup_path, input_ids):
         for line in f:
             key, value = line.strip().split("|")
             lookup[key].append(value)
-            
+
     return {k: lookup[k] for k in set(lookup).intersection(input_ids)}
+
 
 def copy_files(id, sources, source_path, destination_path):
     for source in sources:
@@ -36,7 +40,7 @@ def copy_files(id, sources, source_path, destination_path):
 
             if not dest.parent.exists():
                 dest.mkdir(parents=True)
-            
+
             try:
                 copy(f, dest)
             except PermissionError:
@@ -44,13 +48,14 @@ def copy_files(id, sources, source_path, destination_path):
 
         print(f"Copied {len(files)} images.")
 
+
 def test_copy_sources():
     # Define the input, lookup, source and destination paths for testing
     input_file = Path("input.txt")
     lookup_file = Path("lookup.txt")
     source_path = Path("source/")
     destination_path = Path("destination/")
-    
+
     # Create the input file
     with open(input_file, "w") as i:
         i.write("id1\nid2\nid3")
@@ -70,12 +75,12 @@ def test_copy_sources():
         "input": input_file,
         "lookup": lookup_file,
         "source": source_path,
-        "destination": destination_path
+        "destination": destination_path,
     }
 
     # Call the copy_sources function
     copy_sources(args)
-    
+
     # Assert that the destination directory was created
     assert destination_path.exists()
 
@@ -85,7 +90,11 @@ def test_copy_sources():
         assert subdir.exists()
 
     # Assert that the files were copied
-    for id, filename in [("id1", "file1.txt"), ("id2", "file2.txt"), ("id3", "file3.txt")]:
+    for id, filename in [
+        ("id1", "file1.txt"),
+        ("id2", "file2.txt"),
+        ("id3", "file3.txt"),
+    ]:
         source_file = source_path / filename
         dest_file = destination_path / "images" / id / filename
         assert dest_file.exists()

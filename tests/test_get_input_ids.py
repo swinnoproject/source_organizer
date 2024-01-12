@@ -1,6 +1,6 @@
 import pytest
 from pathlib import Path
-from src.file_utils import get_input_ids
+from source_organizer.file_utils import get_input_ids
 
 @pytest.fixture
 def input_file(tmp_path):
