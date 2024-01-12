@@ -1,13 +1,7 @@
 *.egg-info
 .Rproj.user
 .pytest_cache
-/data/modified-data/
-/data/raw-data/
-!data/*/*.xslx
-!data/*/*.csv
-**/scrap-notebook.ipynb**
-/.quarto/
-*.html
+
 
 .DS_Store
 .huskyrc.json
@@ -59,7 +53,7 @@ dist/**
 *.i18n.json
 
 
-.vscode/*
+.vscode/
 !.vscode/settings.json
 !.vscode/tasks.json
 !.vscode/launch.json
