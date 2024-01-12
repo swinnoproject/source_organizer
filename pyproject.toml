@@ -1,5 +1,5 @@
 [build-system]
-requires = ["setuptools", "wheel", "source_organizer @ git+https://github.com/swinnoproject/source_organizer.git@main"]
+requires = ["setuptools", "wheel", "argparse"]
 build-backend = 'setuptools.build_meta'
 
 [project]
