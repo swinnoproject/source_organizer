@@ -1,6 +1,5 @@
 import argparse
 from pathlib import Path
-from source_organizer.utils import get_project_root
 from source_organizer.file_utils import (
     create_directory,
     get_input_ids,
