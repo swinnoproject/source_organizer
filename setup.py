@@ -4,5 +4,5 @@ setup(
     name="source_organizer",
     version="0.1.0",
     packages=find_packages(),
-    entry_points={"console_scripts": ["organize-sources=scripts.find_sources:main"]},
+    entry_points={"console_scripts": ["organize-sources=find_sources:main"]},
 )
