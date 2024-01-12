@@ -8,39 +8,39 @@ from source_organizer.file_utils import (
     copy_files,
 )
 
-parser = argparse.ArgumentParser()
-parser.add_argument(
-    "-i", "--input", required=True, help="Text file containing input ids."
-)
-
-parser.add_argument(
-    "-l",
-    "--lookup",
-    required=False,
-    type=Path,
-    default="assets/innovation_id_to_source_id.txt",
-    help="Text file containing id lookup pairs.",
-)
-
-parser.add_argument(
-    "-s",
-    "--source",
-    type=Path,
-    help="Path for source of files.",
-)
-
-parser.add_argument(
-    "-d",
-    "--destination",
-    required=False,
-    type=Path,
-    help="Destination path in which to create destination dir",
-)
-
-args = vars((parser.parse_args()))
-
 
 if __name__ == "__main__":
+    parser = argparse.ArgumentParser()
+    parser.add_argument(
+        "-i", "--input", required=True, help="Text file containing input ids."
+    )
+
+    parser.add_argument(
+        "-l",
+        "--lookup",
+        required=False,
+        type=Path,
+        default="assets/innovation_id_to_source_id.txt",
+        help="Text file containing id lookup pairs.",
+    )
+
+    parser.add_argument(
+        "-s",
+        "--source",
+        type=Path,
+        help="Path for source of files.",
+    )
+
+    parser.add_argument(
+        "-d",
+        "--destination",
+        required=False,
+        type=Path,
+        help="Destination path in which to create destination dir",
+    )
+
+    args = vars((parser.parse_args()))
+
     if not Path(args["input"]).exists():
         raise FileNotFoundError(f"Input file {args['input']} does not exist.")
     else:
